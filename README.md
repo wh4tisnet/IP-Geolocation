@@ -2,7 +2,7 @@
 
 Este código crea una página web que permite al usuario introducir una dirección IP y obtener información sobre ella utilizando una API de geolocalización.
 
-## Instrucciones
+## Cómo funciona
 
 1. Introduce la IP que deseas:
 
@@ -15,3 +15,11 @@ Este código crea una página web que permite al usuario introducir una direcci�
    <p align="center">
      <img src="https://github.com/user-attachments/assets/98118184-1661-48de-b012-bc83588b7661" alt="Información de la IP">
    </p>
+
+## Clonar el Repositorio
+
+Para clonar este repositorio, utiliza el siguiente comando:
+
+```bash
+git clone https://github.com/wh4tisnet/GeocalizacionIP
+   ```
