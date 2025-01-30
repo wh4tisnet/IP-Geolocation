@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>IP Geogacilación</title>
+  <title>IP Geolocalización</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 10px;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #ccc;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
   <script type="module">
     const OPTIONS = {
       method: 'GET',
@@ -20,39 +71,39 @@
         .catch(err => console.error(err))
     }
     const $ = selector => document.querySelector(selector)
-    const $form = $('#form')
-    const $input = $('#input')
-    const $submit = $('#submit')
-    const $results = $('#results')
-    $form.addEventListener('submit', async (event) => {
+    const $formulario = $('#formulario')
+    const $entrada = $('#entrada')
+    const $enviar = $('#enviar')
+    const $resultados = $('#resultados')
+    $formulario.addEventListener('submit', async (event) => {
       event.preventDefault()
-      const {value} = $input
+      const {value} = $entrada
       if (!value) return
-      $submit.setAttribute('disabled', '')
-      $submit.setAttribute('aria-busy', 'true')
+      $enviar.setAttribute('disabled', '')
+      $enviar.setAttribute('aria-busy', 'true')
       const ipInfo = await fetchIpInfo(value)
       if (ipInfo) {
-        $results.innerHTML = JSON.stringify(ipInfo, null, 2)
+        $resultados.innerHTML = JSON.stringify(ipInfo, null, 2)
       }
-      $submit.removeAttribute('disabled')
-      $submit.removeAttribute('aria-busy')
+      $enviar.removeAttribute('disabled')
+      $enviar.removeAttribute('aria-busy')
     })
   </script>
 </head>
 <body>
   <main class="container">
-    <form id="form">
+    <form id="formulario">
       <label>
         IP del usuario
-        <input required id="input" type="text" placeholder="Introduce aquí la IP">
+        <input required id="entrada" type="text" placeholder="Introduce aquí la IP">
         <small>Por ejemplo: 54.85.132.205</small>
       </label>
-      <button type="submit" id="submit">
+      <button type="submit" id="enviar">
         Buscar información de esta IP
       </button>
     </form>
     <div>
-      <pre id="results"></pre>
+      <pre id="resultados"></pre>
     </div>
   </main>
 </body>
