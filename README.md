@@ -7,7 +7,7 @@ Este código crea una página web que permite al usuario introducir una direcci�
 1. Introduce la IP que deseas:
 
    <p align="center">
-     <img src="https://github.com/user-attachments/assets/a47a24a1-1d12-406e-a068-b4ed1bd2e754" alt="Introducir IP">
+     <img src="https://github.com/user-attachments/assets/85f2577d-51b0-49b1-bfec-94606b380ea7" alt="Introducir IP">
    </p>
 
 2. Como se puede mostrar, tienes toda la información de esta dirección IP:
