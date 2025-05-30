@@ -1,60 +1,80 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>IP Geolocalización</title>
+  <title>IP Geolocation</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at center, #2d1b69 0%, #0f0f23 100%);
       margin: 0;
-      padding: 0;
+      padding: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
     }
     .container {
       background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
       width: 100%;
       max-width: 500px;
+      backdrop-filter: blur(10px);
     }
     form {
       display: flex;
       flex-direction: column;
     }
     label {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #333;
     }
     input {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 10px;
+      padding: 12px;
+      border: 2px solid #e1e5e9;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      transition: border-color 0.2s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #007bff;
     }
     button {
-      padding: 10px;
-      background-color: #007bff;
+      padding: 12px;
+      background: linear-gradient(135deg, #007bff, #0056b3);
       color: #fff;
       border: none;
-      border-radius: 4px;
+      border-radius: 8px;
       cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    }
+    button:hover:not(:disabled) {
+      transform: translateY(-1px);
     }
     button:disabled {
-      background-color: #ccc;
+      background: #ccc;
+      cursor: not-allowed;
     }
     pre {
-      background-color: #f4f4f4;
-      padding: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #e9ecef;
       white-space: pre-wrap;
       word-wrap: break-word;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+    small {
+      color: #6c757d;
     }
   </style>
   <script type="module">
@@ -94,12 +114,12 @@
   <main class="container">
     <form id="formulario">
       <label>
-        IP del usuario
-        <input required id="entrada" type="text" placeholder="Introduce aquí la IP">
-        <small>Por ejemplo: 54.85.132.205</small>
+        User IP
+        <input required id="entrada" type="text" placeholder="Enter IP address here">
+        <small>For example: 54.85.132.205</small>
       </label>
       <button type="submit" id="enviar">
-        Buscar información de esta IP
+        Search information for this IP
       </button>
     </form>
     <div>
